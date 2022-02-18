@@ -1,4 +1,4 @@
-package com.follow2vivek.storagepath;
+package com.Max.storagepath;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -10,14 +10,12 @@ import java.util.ArrayList;
  */
 public class MediaModel {
 
-
     @SerializedName("folderName")
     @Expose
     String folder;
     @SerializedName("files")
     @Expose
     ArrayList<MetaData> files;
-
 
     public String getFolder() {
         return folder;
@@ -36,4 +34,3 @@ public class MediaModel {
     }
 
 }
-

@@ -1,4 +1,4 @@
-package com.follow2vivek.storagepath;
+package com.Max.storagepath;
 
 import android.Manifest;
 import android.app.Activity;
@@ -102,7 +102,6 @@ public class StoragePathPlugin implements MethodCallHandler {
         }
     }
 
-
     private void getImagePaths(Result result) {
         filesModelArrayList = new ArrayList<>();
         boolean hasFolder = false;
@@ -116,7 +115,7 @@ public class StoragePathPlugin implements MethodCallHandler {
 
         String[] projection = {
                 MediaStore.MediaColumns.DATA,
-                MediaStore.Images.Media.BUCKET_DISPLAY_NAME};
+                MediaStore.Images.Media.BUCKET_DISPLAY_NAME };
 
         final String orderBy = MediaStore.Images.Media.DATE_TAKEN;
         cursor = activity.getContentResolver().query(uri, projection, null, null, orderBy + " DESC");
@@ -138,9 +137,7 @@ public class StoragePathPlugin implements MethodCallHandler {
                 }
             }
 
-
             if (hasFolder) {
-
 
                 ArrayList<String> arrayList = new ArrayList<>();
                 arrayList.addAll(filesModelArrayList.get(position).getFiles());
@@ -168,7 +165,6 @@ public class StoragePathPlugin implements MethodCallHandler {
         }
         result.success(json);
     }
-
 
     private void getVideoPath(Result result) {
 
@@ -201,7 +197,8 @@ public class StoragePathPlugin implements MethodCallHandler {
             for (int i = 0; i < mediaModelArrayList.size(); i++) {
                 if (mediaModelArrayList.get(i) != null &&
                         mediaModelArrayList.get(i).getFolder() != null &&
-                        mediaModelArrayList.get(i).getFolder().equals(new File(absolutePathOfImage).getParentFile().getName())) {
+                        mediaModelArrayList.get(i).getFolder()
+                                .equals(new File(absolutePathOfImage).getParentFile().getName())) {
                     hasFolder = true;
                     position = i;
                     break;
@@ -211,13 +208,16 @@ public class StoragePathPlugin implements MethodCallHandler {
             }
 
             MetaData metaData = new MetaData();
-            metaData.setDuration(cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Video.VideoColumns.DURATION)));
+            metaData.setDuration(
+                    cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Video.VideoColumns.DURATION)));
             metaData.setData(cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Video.VideoColumns.DATA)));
             metaData.setAlbum(cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Video.VideoColumns.ALBUM)));
             metaData.setArtist(cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Video.VideoColumns.ARTIST)));
-            metaData.setDateAdded(cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Video.VideoColumns.DATE_ADDED)));
+            metaData.setDateAdded(
+                    cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Video.VideoColumns.DATE_ADDED)));
             metaData.setSize(cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Video.VideoColumns.SIZE)));
-            metaData.setDisplayName(cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Video.VideoColumns.DISPLAY_NAME)));
+            metaData.setDisplayName(
+                    cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Video.VideoColumns.DISPLAY_NAME)));
 
             if (hasFolder) {
 
@@ -281,7 +281,8 @@ public class StoragePathPlugin implements MethodCallHandler {
             for (int i = 0; i < mediaModelArrayList.size(); i++) {
                 if (mediaModelArrayList.get(i) != null &&
                         mediaModelArrayList.get(i).getFolder() != null &&
-                        mediaModelArrayList.get(i).getFolder().equals(new File(absolutePathOfImage).getParentFile().getName())) {
+                        mediaModelArrayList.get(i).getFolder()
+                                .equals(new File(absolutePathOfImage).getParentFile().getName())) {
                     hasFolder = true;
                     position = i;
                     break;
@@ -291,13 +292,16 @@ public class StoragePathPlugin implements MethodCallHandler {
             }
 
             MetaData metaData = new MetaData();
-            metaData.setDuration(cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Audio.AudioColumns.DURATION)));
+            metaData.setDuration(
+                    cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Audio.AudioColumns.DURATION)));
             metaData.setData(cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Audio.AudioColumns.DATA)));
             metaData.setAlbum(cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Audio.AudioColumns.ALBUM)));
             metaData.setArtist(cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Audio.AudioColumns.ARTIST)));
-            metaData.setDateAdded(cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Audio.AudioColumns.DATE_ADDED)));
+            metaData.setDateAdded(
+                    cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Audio.AudioColumns.DATE_ADDED)));
             metaData.setSize(cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Audio.AudioColumns.SIZE)));
-            metaData.setDisplayName(cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Audio.AudioColumns.DISPLAY_NAME)));
+            metaData.setDisplayName(
+                    cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Audio.AudioColumns.DISPLAY_NAME)));
 
             if (hasFolder) {
 
@@ -369,7 +373,7 @@ public class StoragePathPlugin implements MethodCallHandler {
                 + " OR " + MediaStore.Files.FileColumns.MIME_TYPE + "=?"
                 + " OR " + MediaStore.Files.FileColumns.MIME_TYPE + "=?"
                 + " OR " + MediaStore.Files.FileColumns.MIME_TYPE + "=?";
-        String[] args = new String[]{pdf, doc, docx, xls, xlsx, ppt, pptx, txt, rtx, rtf, html};
+        String[] args = new String[] { pdf, doc, docx, xls, xlsx, ppt, pptx, txt, rtx, rtf, html };
         final String orderBy = MediaStore.Files.FileColumns.DATE_ADDED;
         cursor = activity.getContentResolver().query(uri, projection, where, args, orderBy + " DESC");
 
@@ -379,7 +383,8 @@ public class StoragePathPlugin implements MethodCallHandler {
             for (int i = 0; i < fileModelArrayList.size(); i++) {
                 if (fileModelArrayList.get(i) != null &&
                         fileModelArrayList.get(i).getFolderName() != null &&
-                        fileModelArrayList.get(i).getFolderName().equals(new File(absolutePathOfImage).getParentFile().getName())) {
+                        fileModelArrayList.get(i).getFolderName()
+                                .equals(new File(absolutePathOfImage).getParentFile().getName())) {
                     hasFolder = true;
                     position = i;
                     break;
@@ -391,8 +396,10 @@ public class StoragePathPlugin implements MethodCallHandler {
             FileMetaData metaData = new FileMetaData();
             metaData.setData(cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Files.FileColumns.DATA)));
             metaData.setSize(cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Files.FileColumns.SIZE)));
-            metaData.setDisplayName(cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Files.FileColumns.DISPLAY_NAME)));
-            metaData.setMimeType(cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Files.FileColumns.MIME_TYPE)));
+            metaData.setDisplayName(
+                    cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Files.FileColumns.DISPLAY_NAME)));
+            metaData.setMimeType(
+                    cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Files.FileColumns.MIME_TYPE)));
             metaData.setTitle(cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Files.FileColumns.TITLE)));
 
             if (hasFolder) {

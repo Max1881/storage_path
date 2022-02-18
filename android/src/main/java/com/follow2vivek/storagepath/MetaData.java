@@ -1,4 +1,4 @@
-package com.follow2vivek.storagepath;
+package com.Max.storagepath;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
