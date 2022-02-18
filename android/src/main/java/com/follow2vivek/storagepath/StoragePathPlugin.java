@@ -1,4 +1,4 @@
-package com.Max.storagepath;
+package com.follow2vivek.storagepath;
 
 import android.Manifest;
 import android.app.Activity;

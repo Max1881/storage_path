@@ -1,4 +1,4 @@
-group 'com.Max.storagepath'
+group 'com.follow2vivek.storagepath'
 version '1.0-SNAPSHOT'
 
 buildscript {

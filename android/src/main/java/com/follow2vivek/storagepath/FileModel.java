@@ -1,4 +1,4 @@
-package com.Max.storagepath;
+package com.follow2vivek.storagepath;
 
 import java.io.Serializable;
 import java.util.ArrayList;
